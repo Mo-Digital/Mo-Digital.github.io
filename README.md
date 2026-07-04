@@ -24,6 +24,29 @@ npm run watch:css        # baut automatisch bei jeder Änderung neu
 
 Die Tailwind-Konfiguration (Farben, Schriften, Komponenten) liegt in `assets/css/input.css`.
 
+## Deployment (GitHub Pages)
+
+GitHub Pages ist auf "Deploy from a branch" → `main` konfiguriert (klassisches Pages-Setup,
+kein eigener Workflow im Repo nötig). Das heißt konkret:
+
+- **Nur was in `main` liegt, wird live ausgeliefert.** Änderungen, die nur auf einem
+  Feature-/Claude-Branch committet und gepusht wurden, erscheinen nicht auf der Live-Seite,
+  bis dieser Branch per Pull Request (oder Merge) in `main` gelandet ist – auch wenn der
+  Push selbst erfolgreich war.
+- Nach jedem Merge in `main` läuft automatisch ein "pages build and deployment"-Check im
+  Actions-Tab. Grün heißt nur "der aktuelle Stand von `main` wurde erfolgreich ausgeliefert" –
+  nicht zwangsläufig, dass dein letzter Feature-Branch-Commit schon Teil davon ist.
+- Faustregel bei "meine Änderungen sind live nicht sichtbar": zuerst prüfen, ob der Commit
+  wirklich in `main` ist (`git log origin/main`), erst danach an Browser-Cache denken.
+
+### Cache-Busting für CSS/JS
+
+Alle `<link rel="stylesheet">`- und `<script src="...">`-Verweise auf
+`assets/css/style.css` und `assets/js/*.js` tragen einen Versions-Query-Parameter
+(`?v=1`). Erhöhe diese Zahl (`?v=2`, `?v=3`, …) in allen 5 HTML-Dateien, wenn du CSS oder
+JS änderst und neu deployst – sonst kann der Browser eines wiederkehrenden Besuchers die
+alte, gecachte Datei weiterverwenden.
+
 ## Ordnerstruktur
 
 ```
@@ -82,27 +105,23 @@ Name/Firma, Anschrift, Telefon, USt-IdNr. (falls vorhanden), verantwortliche Per
 (z. B. IHK, e-recht24.de) prüfen – die Vorlage ersetzt keine Rechtsberatung.
 
 ### 4. Datenschutzerklärung (`datenschutz/index.html`)
-Verantwortlicher, Hosting-Anbieter, eingesetzter Formular-Dienst (siehe Punkt 5),
-Stand-Datum. Ebenfalls vor Live-Schaltung rechtlich prüfen lassen.
+Verantwortlicher, Hosting-Anbieter, Stand-Datum. Ebenfalls vor Live-Schaltung rechtlich
+prüfen lassen.
 
-### 5. Kontaktformular-Backend (`kontakt/index.html`)
-Das `<form data-contact-form action="https://formspree.io/f/DEIN-FORM-ID" ...>` zeigt
-aktuell auf einen Platzhalter. Zwei Optionen:
-- **Formspree:** eigene Formspree-Form-ID in `action` eintragen.
-- **Netlify Forms:** zusätzlich `data-netlify="true"` und `name="kontakt"` auf dem
-  `<form>`-Tag setzen sowie ein verstecktes Feld `<input type="hidden" name="form-name"
-  value="kontakt" />` ergänzen.
-
-Der Calendly-Link ist bereits gesetzt (`https://calendly.com/mhammed-hakan/30min`).
+### 5. Kontaktseite (`kontakt/index.html`)
+Kein klassisches Formular: Die Seite ist ein reiner Auswahl-Flow (2 Fragen per Klick,
+keine Texteingabe, keine Datenerhebung) und führt danach direkt zum eingebetteten
+Calendly-Widget. Der Calendly-Link ist bereits gesetzt
+(`https://calendly.com/mhammed-hakan/30min`).
 
 ### 6. Testimonials & Kennzahlen (`index.html`, Abschnitt "Das sagen Kund:innen")
-3 Testimonial-Karten mit Fantasienamen (Lukas Bergmann, Aryan Singh, Sophie Wagner) und
-Platzhalter-Firmen (`[Firmenname]`) sowie 3 Kennzahlen (`+150%`, `20+`, `24h`) – durch
-echte Kundenbewertungen und Werte ersetzen, sobald verfügbar.
+3 Testimonial-Karten mit Fantasienamen (Lukas Bergmann, Aryan Singh, Jessica Miller) und
+3 Kennzahlen (`+150%`, `20+`, `24h`) – durch echte Kundenbewertungen und Werte ersetzen,
+sobald verfügbar.
 
 ### 7. Bilder
-Alle `assets/img/*.svg` sind Platzhalter (Portrait, Kundenlogos, Favicon, OG-Bild).
-Durch echte Fotos/Screenshots (JPG/PNG/WebP) ersetzen und die `<img src="...">`-Pfade in
+Alle `assets/img/*.svg` sind Platzhalter (Portrait, Favicon, OG-Bild). Durch echte
+Fotos/Screenshots (JPG/PNG/WebP) ersetzen und die `<img src="...">`-Pfade in
 den HTML-Dateien entsprechend anpassen. Für das Open-Graph-Bild empfiehlt sich ein
 echtes JPG/PNG (1200×630px) statt SVG, da nicht alle Social-Plattformen
 SVG-Vorschaubilder korrekt darstellen.
@@ -134,11 +153,5 @@ Domain ersetzen.
   Desktop (1440px) für alle 5 Seiten kontrolliert.
 - Die Seite funktioniert auch ohne JavaScript vollständig (Inhalte sind standardmäßig
   sichtbar; Scroll-Animationen sind eine reine Zusatz-Verschönerung bei aktiviertem JS).
-- FAQ-Akkordeon und das mehrstufige Kontaktformular wurden durchgeklickt und
+- FAQ-Akkordeon und der Auswahl-Flow auf der Kontaktseite wurden durchgeklickt und
   funktionieren wie vorgesehen.
-
-## Bekannte Platzhalter-Limitierung
-
-Das Kontaktformular sendet aktuell an eine Platzhalter-Formspree-URL und schlägt daher
-fehl, bis du Punkt 5 oben erledigt hast. Die Fehlerbehandlung im Formular greift in
-diesem Fall korrekt (Fehlermeldung statt stillem Fehlschlag).

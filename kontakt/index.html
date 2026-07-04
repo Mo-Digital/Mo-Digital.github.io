@@ -17,7 +17,7 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
-  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=1" />
 </head>
 <body class="font-body antialiased">
 
@@ -28,7 +28,7 @@
   <!-- ============ HEADER ============ -->
   <header class="sticky top-0 z-40 border-b border-[var(--color-border)]/80 bg-[var(--color-bg)]/90 backdrop-blur">
     <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-      <a href="../" class="flex items-center gap-2.5 font-display text-xl font-bold tracking-tight">
+      <a href="../" class="flex items-center gap-4 font-display text-xl font-bold tracking-tight">
         <!-- TODO: echtes Logo hier einsetzen -->
         <span class="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-bg-elevated)] text-sm font-semibold text-[var(--color-accent)]" aria-hidden="true">M</span>
         Mo <span class="text-[var(--color-accent)]">Digital</span>
@@ -77,121 +77,65 @@
       <p class="mt-4 text-[var(--color-text-muted)]">Kostenlos, unverbindlich, ohne Blabla.</p>
     </div>
 
-    <!-- Fortschrittsanzeige -->
-    <div class="mx-auto mt-10 flex max-w-md items-center justify-center gap-3" aria-hidden="true">
-      <span data-progress-step="1" class="is-active flex h-8 w-8 items-center justify-center rounded-full border border-[var(--color-border)] font-display text-sm font-semibold">1</span>
-      <span class="h-px w-8 bg-[var(--color-border)]"></span>
-      <span data-progress-step="2" class="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--color-border)] font-display text-sm font-semibold">2</span>
-      <span class="h-px w-8 bg-[var(--color-border)]"></span>
-      <span data-progress-step="3" class="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--color-border)] font-display text-sm font-semibold">3</span>
-    </div>
+    <div data-contact-flow class="mx-auto mt-12 max-w-xl">
+      <p data-flow-progress class="mb-6 text-center text-sm font-medium uppercase tracking-[0.15em] text-[var(--color-accent)]">
+        Schritt 1 von 2
+      </p>
 
-    <!--
-      TODO: Formular-Backend eintragen.
-      Option A – Formspree: action="https://formspree.io/f/DEIN-FORM-ID" (dieses <form> braucht sonst nichts weiter)
-      Option B – Netlify Forms: auf dem <form>-Tag zusätzlich data-netlify="true" und name="kontakt" setzen,
-                 sowie ein verstecktes <input type="hidden" name="form-name" value="kontakt" /> ergänzen.
-    -->
-    <form
-      data-contact-form
-      action="https://formspree.io/f/DEIN-FORM-ID"
-      method="POST"
-      class="mx-auto mt-12 max-w-xl"
-      novalidate
-    >
-      <input type="hidden" name="Leistung" data-service-input value="" />
-      <!-- Honeypot-Feld gegen Spam-Bots (für Menschen unsichtbar, nicht per Tab erreichbar) -->
-      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
-
-      <div data-form-error role="alert" class="hidden rounded-xl border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-300"></div>
-
-      <!-- Step 1: Leistung wählen -->
-      <fieldset data-step="1" class="mt-4">
-        <legend class="font-display text-lg font-semibold">Wofür suchst du eine Lösung?</legend>
+      <!-- Frage 1: Mehrfachauswahl -->
+      <div data-flow-step="1">
+        <h2 class="text-center font-display text-lg font-semibold">Wofür brauchst du Unterstützung?</h2>
+        <p class="mt-1 text-center text-sm text-[var(--color-text-muted)]">Mehrfachauswahl möglich</p>
         <div class="mt-5 grid gap-3 sm:grid-cols-2">
-          <button type="button" data-service-option="Social Media & Content" class="card !p-5 text-left hover:border-[var(--color-accent)]">
+          <button type="button" data-flow-option data-flow-multi aria-pressed="false" class="card !p-5 text-left hover:border-[var(--color-accent)]">
             <span class="font-display font-medium">Social Media &amp; Content</span>
           </button>
-          <button type="button" data-service-option="Webseite & Online-Auftritt" class="card !p-5 text-left hover:border-[var(--color-accent)]">
+          <button type="button" data-flow-option data-flow-multi aria-pressed="false" class="card !p-5 text-left hover:border-[var(--color-accent)]">
             <span class="font-display font-medium">Webseite &amp; Online-Auftritt</span>
           </button>
-          <button type="button" data-service-option="Kundengewinnung & Strategie" class="card !p-5 text-left hover:border-[var(--color-accent)]">
+          <button type="button" data-flow-option data-flow-multi aria-pressed="false" class="card !p-5 text-left hover:border-[var(--color-accent)]">
             <span class="font-display font-medium">Kundengewinnung &amp; Strategie</span>
           </button>
-          <button type="button" data-service-option="Alles zusammen" class="card !p-5 text-left hover:border-[var(--color-accent)]">
-            <span class="font-display font-medium">Alles zusammen</span>
+          <button type="button" data-flow-option data-flow-multi aria-pressed="false" class="card !p-5 text-left hover:border-[var(--color-accent)]">
+            <span class="font-display font-medium">Ich bin mir noch nicht sicher</span>
           </button>
         </div>
-        <button type="button" data-step1-next disabled class="btn-primary mt-6 w-full disabled:cursor-not-allowed disabled:opacity-40">
+        <button type="button" data-flow-next="1" disabled class="btn-primary mt-6 w-full disabled:cursor-not-allowed disabled:opacity-40">
           Weiter
         </button>
-      </fieldset>
+      </div>
 
-      <!-- Step 2: Kontaktdaten -->
-      <fieldset data-step="2" class="hidden mt-4">
-        <legend class="font-display text-lg font-semibold">Deine Kontaktdaten</legend>
-        <div class="mt-5 space-y-4">
-          <div>
-            <label for="name" class="mb-1.5 block text-sm font-medium">Name *</label>
-            <input id="name" name="Name" type="text" required autocomplete="name" class="w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] px-4 py-3 outline-none focus:border-[var(--color-accent)]" />
-          </div>
-          <div>
-            <label for="email" class="mb-1.5 block text-sm font-medium">E-Mail *</label>
-            <input id="email" name="E-Mail" type="email" required autocomplete="email" class="w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] px-4 py-3 outline-none focus:border-[var(--color-accent)]" />
-          </div>
-          <div>
-            <label for="phone" class="mb-1.5 block text-sm font-medium">Telefon (optional)</label>
-            <input id="phone" name="Telefon" type="tel" autocomplete="tel" class="w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] px-4 py-3 outline-none focus:border-[var(--color-accent)]" />
-          </div>
-          <div>
-            <label for="company" class="mb-1.5 block text-sm font-medium">Wie heißt dein Unternehmen / Projekt?</label>
-            <input id="company" name="Unternehmen" type="text" autocomplete="organization" class="w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] px-4 py-3 outline-none focus:border-[var(--color-accent)]" />
-          </div>
-          <div>
-            <label for="existing-presence" class="mb-1.5 block text-sm font-medium">Hast du aktuell schon eine Webseite oder Social-Media-Kanäle?</label>
-            <select id="existing-presence" name="Bestehender Online-Auftritt" style="color-scheme: dark" class="w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] px-4 py-3 outline-none focus:border-[var(--color-accent)]">
-              <option value="">Bitte auswählen</option>
-              <option value="Ja">Ja</option>
-              <option value="Nein">Nein</option>
-            </select>
-          </div>
-          <div>
-            <label for="budget" class="mb-1.5 block text-sm font-medium">Was ist dein ungefähres Budget für dieses Projekt?</label>
-            <select id="budget" name="Budget" style="color-scheme: dark" class="w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] px-4 py-3 outline-none focus:border-[var(--color-accent)]">
-              <option value="">Bitte auswählen</option>
-              <option value="Unter 500€">Unter 500€</option>
-              <option value="500–1.500€">500–1.500€</option>
-              <option value="1.500–5.000€">1.500–5.000€</option>
-              <option value="Noch unklar">Noch unklar</option>
-            </select>
-          </div>
-          <div>
-            <label for="message" class="mb-1.5 block text-sm font-medium">Nachricht / Projektbeschreibung</label>
-            <textarea id="message" name="Nachricht" rows="4" class="w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-elevated)] px-4 py-3 outline-none focus:border-[var(--color-accent)]"></textarea>
-          </div>
+      <!-- Frage 2: Einfachauswahl -->
+      <div data-flow-step="2" class="hidden">
+        <h2 class="text-center font-display text-lg font-semibold">Wie schnell möchtest du starten?</h2>
+        <div class="mt-5 grid gap-3">
+          <button type="button" data-flow-option data-flow-single aria-pressed="false" class="card !p-5 text-left hover:border-[var(--color-accent)]">
+            <span class="font-display font-medium">Am liebsten sofort</span>
+          </button>
+          <button type="button" data-flow-option data-flow-single aria-pressed="false" class="card !p-5 text-left hover:border-[var(--color-accent)]">
+            <span class="font-display font-medium">In den nächsten 2–4 Wochen</span>
+          </button>
+          <button type="button" data-flow-option data-flow-single aria-pressed="false" class="card !p-5 text-left hover:border-[var(--color-accent)]">
+            <span class="font-display font-medium">Ich informiere mich erstmal unverbindlich</span>
+          </button>
         </div>
         <div class="mt-6 flex gap-3">
-          <button type="button" data-step2-back class="btn-secondary w-1/3">Zurück</button>
-          <button type="submit" data-form-submit class="btn-primary w-2/3">Absenden</button>
+          <button type="button" data-flow-back="2" class="btn-secondary w-1/3">Zurück</button>
+          <button type="button" data-flow-next="2" disabled class="btn-primary w-2/3 disabled:cursor-not-allowed disabled:opacity-40">
+            Weiter
+          </button>
         </div>
-        <p class="mt-4 text-xs text-[var(--color-text-muted)]">
-          Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemäß
-          <a href="../datenschutz/" class="underline hover:text-[var(--color-accent)]">Datenschutzerklärung</a> zu.
-        </p>
-      </fieldset>
+      </div>
 
-      <!-- Step 3: Bestätigung + Calendly -->
-      <fieldset data-step="3" class="hidden mt-4 text-center">
-        <legend class="mx-auto font-display text-lg font-semibold">Danke für deine Nachricht!</legend>
-        <p class="mt-3 text-sm text-[var(--color-text-muted)]">
-          Ich melde mich innerhalb von 24h bei dir. Wenn du magst, kannst du dir direkt einen Termin für unser
-          Erstgespräch aussuchen:
-        </p>
+      <!-- Ergebnis: direkt zu Calendly -->
+      <div data-flow-step="3" class="hidden text-center">
+        <h2 class="font-display text-lg font-semibold">Wähl dir gleich einen Termin aus</h2>
+        <p class="mt-2 text-sm text-[var(--color-text-muted)]">Kostenlos &amp; unverbindlich, 30 Minuten.</p>
 
         <!-- Calendly Inline-Widget: offizielles Embed-Script -->
         <div class="calendly-inline-widget mt-6 overflow-hidden rounded-2xl border border-[var(--color-border)]" data-url="https://calendly.com/mhammed-hakan/30min" style="min-width:280px;height:650px;"></div>
-      </fieldset>
-    </form>
+      </div>
+    </div>
   </main>
 
   <!-- ============ FOOTER ============ -->
@@ -248,8 +192,8 @@
     </div>
   </footer>
 
-  <script src="../assets/js/main.js"></script>
-  <script src="../assets/js/contact-form.js"></script>
+  <script src="../assets/js/main.js?v=1"></script>
+  <script src="../assets/js/contact-form.js?v=1"></script>
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>

@@ -142,13 +142,8 @@
     transform: rotate(180deg);
   }
 
-  [data-service-option].is-selected {
+  [data-flow-option].is-selected {
     border-color: var(--color-accent);
     background-color: var(--color-accent-soft);
-  }
-  [data-progress-step].is-active {
-    background-color: var(--color-accent);
-    color: #fff;
-    border-color: var(--color-accent);
   }
 }

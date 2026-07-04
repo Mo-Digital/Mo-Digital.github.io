@@ -1,82 +1,54 @@
-/* Multi-step contact form: 1) Leistung wählen  2) Kontaktdaten  3) Bestätigung + Calendly */
+/* Kontakt-Seite: reiner Auswahl-Flow (keine Texteingabe) - 2 Fragen, dann Calendly */
 
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("[data-contact-form]");
-  if (!form) return;
+  const flow = document.querySelector("[data-contact-flow]");
+  if (!flow) return;
 
-  const steps = form.querySelectorAll("[data-step]");
-  const serviceInput = form.querySelector("[data-service-input]");
-  const serviceButtons = form.querySelectorAll("[data-service-option]");
-  const step1Next = form.querySelector("[data-step1-next]");
-  const step2Back = form.querySelector("[data-step2-back]");
-  const errorBox = form.querySelector("[data-form-error]");
-  const submitButton = form.querySelector("[data-form-submit]");
+  const steps = flow.querySelectorAll("[data-flow-step]");
+  const progress = flow.querySelector("[data-flow-progress]");
+  const next1 = flow.querySelector('[data-flow-next="1"]');
+  const next2 = flow.querySelector('[data-flow-next="2"]');
+  const back2 = flow.querySelector('[data-flow-back="2"]');
 
   goToStep(1);
 
-  serviceButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      serviceButtons.forEach((b) => b.classList.remove("is-selected"));
-      button.classList.add("is-selected");
-      serviceInput.value = button.getAttribute("data-service-option");
-      step1Next.disabled = false;
+  steps.forEach((step) => {
+    const multiButtons = step.querySelectorAll("[data-flow-multi]");
+    multiButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const pressed = button.getAttribute("aria-pressed") === "true";
+        button.setAttribute("aria-pressed", String(!pressed));
+        button.classList.toggle("is-selected", !pressed);
+        next1.disabled = step.querySelectorAll('[data-flow-multi][aria-pressed="true"]').length === 0;
+      });
+    });
+
+    const singleButtons = step.querySelectorAll("[data-flow-single]");
+    singleButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        singleButtons.forEach((b) => {
+          b.setAttribute("aria-pressed", "false");
+          b.classList.remove("is-selected");
+        });
+        button.setAttribute("aria-pressed", "true");
+        button.classList.add("is-selected");
+        next2.disabled = false;
+      });
     });
   });
 
-  step1Next.addEventListener("click", () => goToStep(2));
-  step2Back.addEventListener("click", () => goToStep(1));
-
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    if (!form.reportValidity()) return;
-
-    hideError();
-    submitButton.disabled = true;
-    submitButton.textContent = "Wird gesendet …";
-
-    try {
-      // TODO: Formular-Backend eintragen (z.B. Formspree-Endpoint als form action,
-      // oder bei Netlify-Hosting: data-netlify="true" auf dem <form>-Tag setzen).
-      const response = await fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" },
-      });
-
-      if (!response.ok) throw new Error("Submit failed");
-      goToStep(3);
-    } catch (err) {
-      showError(
-        "Das Absenden hat nicht geklappt. Bitte versuch es erneut oder schreib mir direkt eine E-Mail (Link im Footer)."
-      );
-    } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = "Absenden";
-    }
-  });
+  next1.addEventListener("click", () => goToStep(2));
+  back2.addEventListener("click", () => goToStep(1));
+  next2.addEventListener("click", () => goToStep(3));
 
   function goToStep(stepNumber) {
     steps.forEach((step) => {
-      const isActive = Number(step.getAttribute("data-step")) === stepNumber;
+      const isActive = Number(step.getAttribute("data-flow-step")) === stepNumber;
       step.classList.toggle("hidden", !isActive);
     });
-    document.querySelectorAll("[data-progress-step]").forEach((dot) => {
-      const n = Number(dot.getAttribute("data-progress-step"));
-      dot.classList.toggle("is-active", n <= stepNumber);
-    });
-    if (stepNumber !== 1) return;
-    step1Next.disabled = !serviceInput.value;
-  }
-
-  function showError(message) {
-    if (!errorBox) return;
-    errorBox.textContent = message;
-    errorBox.classList.remove("hidden");
-  }
-
-  function hideError() {
-    if (!errorBox) return;
-    errorBox.classList.add("hidden");
-    errorBox.textContent = "";
+    if (progress) {
+      progress.classList.toggle("hidden", stepNumber === 3);
+      progress.textContent = `Schritt ${stepNumber} von 2`;
+    }
   }
 });
