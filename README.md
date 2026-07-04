@@ -30,24 +30,29 @@ Die Tailwind-Konfiguration (Farben, Schriften, Komponenten) liegt in `assets/css
 /
 ├── index.html              Startseite
 ├── kontakt/index.html      Kontaktformular + Calendly
-├── referenzen/index.html   Portfolio/Referenzen mit Filter
 ├── faq/index.html          FAQ (Akkordeon)
 ├── impressum/index.html    Impressum (Rechtsvorlage)
 ├── datenschutz/index.html  Datenschutzerklärung (Rechtsvorlage)
 ├── assets/
 │   ├── css/                input.css (Quelle) + style.css (gebautes CSS)
-│   ├── js/                 main.js, contact-form.js, referenzen-filter.js
+│   ├── js/                 main.js, contact-form.js
 │   ├── fonts/               lokal gehostete Space Grotesk / Inter Schriftdateien
 │   └── img/                 SVG-Platzhalterbilder
 ├── robots.txt
 └── sitemap.xml
 ```
 
+Es gibt aktuell **keine Referenzen/Portfolio-Seite** – die kommt erst, sobald echte
+Projekte vorliegen. Die Testimonial-Sektion auf der Startseite ("Das sagen Kund:innen")
+bleibt bestehen, aber mit Platzhalter-Namen (siehe Punkt 6 unten).
+
 Jede Unterseite liegt in einem eigenen Ordner mit `index.html`, damit beim Hosten
 automatisch saubere URLs wie `/kontakt` bzw. `/kontakt/` funktionieren (Netlify, Vercel,
 GitHub Pages, eigener Server – ohne zusätzliche Rewrite-Regeln). Alle internen Links und
-Asset-Pfade sind root-relativ (`/assets/...`, `/kontakt/`), d. h. die Seite muss von der
-Domain-Wurzel ausgeliefert werden.
+Asset-Pfade sind **relativ** (`assets/...` von der Startseite aus, `../assets/...` von den
+Unterseiten aus), d. h. die Seite funktioniert unverändert sowohl auf einer eigenen Domain
+als auch in einem Unterordner – z. B. bei einem GitHub-Pages-Projekt unter
+`https://username.github.io/repo-name/`.
 
 ## Bevor du live gehst: das musst du eintragen
 
@@ -55,28 +60,30 @@ Alle Platzhalter sind im Code mit `<!-- TODO -->`-Kommentaren oder `[IN GROSSBUC
 markiert. Zentrale Übersicht:
 
 ### 1. Kontaktdaten (überall identisch verwendet)
-- **E-Mail:** aktuell `hallo@mo-digital.example` – suche/ersetze in allen 6 HTML-Dateien
+- **E-Mail:** aktuell `hallo@mo-digital.example` – suche/ersetze in allen 5 HTML-Dateien
   (Footer + teils im Fließtext). Achte darauf, dass sichtbarer Text und `mailto:`-Link
   identisch bleiben.
 - **Social-Media-Handles:** Instagram/TikTok/LinkedIn aktuell `@mo.digital` bzw.
-  `mo-digital` – in allen 6 Footern identisch. Nach dem Ersetzen erneut in allen Dateien
+  `mo-digital` – in allen 5 Footern identisch. Nach dem Ersetzen erneut in allen Dateien
   prüfen, dass Linktext und `href` exakt übereinstimmen.
 - **[STADT/REGION]:** in Meta-Descriptions, Footer und Texten – deine echte Stadt/Region.
-- **[DEIN NAME]  / [DEIN VOLLER NAME]:** Hero, Über-mich-Sektion, Impressum, Datenschutz,
-  Schema.org-JSON-LD in `index.html`.
+- **[DEIN VOLLER NAME]:** Impressum, Datenschutz, Schema.org-JSON-LD in `index.html`
+  (rechtlicher Name für Impressum – der öffentliche Name "Mo" ist bereits im Hero, in der
+  Über-mich-Sektion und den Bild-alt-Texten eingetragen).
 
-### 2. Impressum (`impressum/index.html`)
+### 2. Logo (alle 5 Seiten, Header)
+Neben dem Schriftzug "Mo Digital" im Header steht aktuell ein runder Platzhalter mit
+einem "M" (`<!-- TODO: echtes Logo hier einsetzen -->`). Ersetze das `<span>` durch ein
+`<img>`-Tag mit deinem echten Logo, sobald vorhanden.
+
+### 3. Impressum (`impressum/index.html`)
 Name/Firma, Anschrift, Telefon, USt-IdNr. (falls vorhanden), verantwortliche Person.
 **Wichtig:** Lass den Text vor Live-Schaltung von einem Anwalt oder Impressum-Generator
 (z. B. IHK, e-recht24.de) prüfen – die Vorlage ersetzt keine Rechtsberatung.
 
-### 3. Datenschutzerklärung (`datenschutz/index.html`)
+### 4. Datenschutzerklärung (`datenschutz/index.html`)
 Verantwortlicher, Hosting-Anbieter, eingesetzter Formular-Dienst (siehe Punkt 5),
 Stand-Datum. Ebenfalls vor Live-Schaltung rechtlich prüfen lassen.
-
-### 4. Referenzen (`referenzen/index.html`)
-6 Platzhalter-Projekte ("Projekt Alpha" bis "Zeta") mit Screenshot-Platzhaltern –
-durch echte Projekte, Screenshots und Beschreibungen ersetzen.
 
 ### 5. Kontaktformular-Backend (`kontakt/index.html`)
 Das `<form data-contact-form action="https://formspree.io/f/DEIN-FORM-ID" ...>` zeigt
@@ -86,24 +93,23 @@ aktuell auf einen Platzhalter. Zwei Optionen:
   `<form>`-Tag setzen sowie ein verstecktes Feld `<input type="hidden" name="form-name"
   value="kontakt" />` ergänzen.
 
-### 6. Calendly-Link (`kontakt/index.html`)
-Platzhalter `https://calendly.com/DEIN-LINK` durch deinen echten Calendly-Link ersetzen
-(zwei Stellen: `data-url` des Widgets sowie ggf. weitere Verweise).
+Der Calendly-Link ist bereits gesetzt (`https://calendly.com/mhammed-hakan/30min`).
 
-### 7. Testimonials & Kennzahlen (`index.html`, Referenzen-Sektion)
-3 Testimonial-Platzhalter (Zitat + Name/Firma) und 3 Kennzahlen (`+150%`, `20+`, `24h`)
-durch echte Werte ersetzen.
+### 6. Testimonials & Kennzahlen (`index.html`, Abschnitt "Das sagen Kund:innen")
+3 Testimonial-Karten mit Fantasienamen (Lukas Bergmann, Aryan Singh, Sophie Wagner) und
+Platzhalter-Firmen (`[Firmenname]`) sowie 3 Kennzahlen (`+150%`, `20+`, `24h`) – durch
+echte Kundenbewertungen und Werte ersetzen, sobald verfügbar.
 
-### 8. Bilder
-Alle `assets/img/*.svg` sind Platzhalter (Portrait, Kundenlogos, Projekt-Screenshots,
-Favicon, OG-Bild). Durch echte Fotos/Screenshots (JPG/PNG/WebP) ersetzen und die
-`<img src="...">`-Pfade in den HTML-Dateien entsprechend anpassen. Für das
-Open-Graph-Bild empfiehlt sich ein echtes JPG/PNG (1200×630px) statt SVG, da nicht alle
-Social-Plattformen SVG-Vorschaubilder korrekt darstellen.
+### 7. Bilder
+Alle `assets/img/*.svg` sind Platzhalter (Portrait, Kundenlogos, Favicon, OG-Bild).
+Durch echte Fotos/Screenshots (JPG/PNG/WebP) ersetzen und die `<img src="...">`-Pfade in
+den HTML-Dateien entsprechend anpassen. Für das Open-Graph-Bild empfiehlt sich ein
+echtes JPG/PNG (1200×630px) statt SVG, da nicht alle Social-Plattformen
+SVG-Vorschaubilder korrekt darstellen.
 
-### 9. Domain
+### 8. Domain
 `https://www.mo-digital.example` ist ein Platzhalter – in `robots.txt`, `sitemap.xml`
-sowie den `canonical`- und `og:url`-Tags in allen 6 HTML-`<head>`s durch deine echte
+sowie den `canonical`- und `og:url`-Tags in allen 5 HTML-`<head>`s durch deine echte
 Domain ersetzen.
 
 ## SEO & Technik – was schon eingebaut ist
@@ -125,11 +131,11 @@ Domain ersetzen.
 - E-Mail- und Social-Media-Links: sichtbarer Text und tatsächliches Linkziel wurden
   seitenübergreifend auf exakte Übereinstimmung geprüft.
 - Responsives Verhalten wurde per Screenshot-Test auf Mobile (390px), Tablet (768px) und
-  Desktop (1440px) für alle 6 Seiten kontrolliert.
+  Desktop (1440px) für alle 5 Seiten kontrolliert.
 - Die Seite funktioniert auch ohne JavaScript vollständig (Inhalte sind standardmäßig
   sichtbar; Scroll-Animationen sind eine reine Zusatz-Verschönerung bei aktiviertem JS).
-- FAQ-Akkordeon, Referenzen-Filter und das mehrstufige Kontaktformular wurden
-  durchgeklickt und funktionieren wie vorgesehen.
+- FAQ-Akkordeon und das mehrstufige Kontaktformular wurden durchgeklickt und
+  funktionieren wie vorgesehen.
 
 ## Bekannte Platzhalter-Limitierung
 

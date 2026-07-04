@@ -146,11 +146,6 @@
     border-color: var(--color-accent);
     background-color: var(--color-accent-soft);
   }
-  [data-filter].is-active {
-    background-color: var(--color-accent);
-    color: #fff;
-    border-color: var(--color-accent);
-  }
   [data-progress-step].is-active {
     background-color: var(--color-accent);
     color: #fff;
