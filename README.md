@@ -83,7 +83,7 @@ Alle Platzhalter sind im Code mit `<!-- TODO -->`-Kommentaren oder `[IN GROSSBUC
 markiert. Zentrale Übersicht:
 
 ### 1. Kontaktdaten (überall identisch verwendet)
-- **E-Mail:** aktuell `hallo@mo-digital.example` – suche/ersetze in allen 5 HTML-Dateien
+- **E-Mail:** aktuell `info@mo-digital.net` – suche/ersetze in allen 5 HTML-Dateien
   (Footer + teils im Fließtext). Achte darauf, dass sichtbarer Text und `mailto:`-Link
   identisch bleiben.
 - **Social-Media-Handles:** Instagram/TikTok/LinkedIn aktuell `@mo.digital` bzw.
@@ -112,7 +112,7 @@ prüfen lassen.
 Kein klassisches Formular: Die Seite ist ein reiner Auswahl-Flow (2 Fragen per Klick,
 keine Texteingabe, keine Datenerhebung) und führt danach direkt zum eingebetteten
 Calendly-Widget. Der Calendly-Link ist bereits gesetzt
-(`https://calendly.com/mhammed-hakan/30min`).
+(`https://calendly.com/mo-digital/30min`).
 
 ### 6. Testimonials & Kennzahlen (`index.html`, Abschnitt "Das sagen Kund:innen")
 3 Testimonial-Karten mit Fantasienamen (Lukas Bergmann, Aryan Singh, Jessica Miller) und
