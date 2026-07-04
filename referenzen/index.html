@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <script>document.documentElement.classList.add('js')</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Referenzen – Projekte &amp; Ergebnisse | Mo Digital</title>
+  <meta name="description" content="Ausgewählte Projekte aus Social Media, Webdesign und Strategie – umgesetzt von Mo Digital in [STADT/REGION]." />
+  <link rel="canonical" href="https://www.mo-digital.example/referenzen/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Referenzen – Mo Digital" />
+  <meta property="og:description" content="Ausgewählte Projekte aus Social Media, Webdesign und Strategie." />
+  <meta property="og:image" content="https://www.mo-digital.example/assets/img/og-image.svg" />
+  <meta property="og:url" content="https://www.mo-digital.example/referenzen/" />
+  <meta property="og:locale" content="de_DE" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body class="font-body antialiased">
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-[var(--color-accent)] focus:px-4 focus:py-2 focus:text-white">
+    Zum Inhalt springen
+  </a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="sticky top-0 z-40 border-b border-[var(--color-border)]/80 bg-[var(--color-bg)]/90 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="/" class="font-display text-xl font-bold tracking-tight">
+        Mo <span class="text-[var(--color-accent)]">Digital</span>
+      </a>
+
+      <nav class="hidden items-center gap-8 md:flex" aria-label="Hauptnavigation">
+        <a href="/#leistungen" class="text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]">Leistungen</a>
+        <a href="/#ueber-mich" class="text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]">Über mich</a>
+        <a href="/referenzen/" aria-current="page" class="text-sm text-[var(--color-text)] transition-colors">Referenzen</a>
+        <a href="/faq/" class="text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]">FAQ</a>
+        <a href="/kontakt/" class="btn-primary !px-5 !py-2.5 text-sm">Erstgespräch</a>
+      </nav>
+
+      <button
+        type="button"
+        data-nav-toggle
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Menü öffnen/schließen"
+        class="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--color-border)] md:hidden"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5">
+          <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <nav
+      id="mobile-menu"
+      data-nav-menu
+      aria-label="Mobile Navigation"
+      class="mobile-menu grid max-h-0 grid-rows-[0fr] overflow-hidden border-t border-[var(--color-border)] transition-[grid-template-rows] duration-300 md:hidden"
+    >
+      <div class="min-h-0 flex flex-col gap-1 px-6 py-4">
+        <a href="/#leistungen" class="rounded-lg px-3 py-3 text-[var(--color-text-muted)] hover:bg-[var(--color-bg-elevated)] hover:text-[var(--color-text)]">Leistungen</a>
+        <a href="/#ueber-mich" class="rounded-lg px-3 py-3 text-[var(--color-text-muted)] hover:bg-[var(--color-bg-elevated)] hover:text-[var(--color-text)]">Über mich</a>
+        <a href="/referenzen/" class="rounded-lg px-3 py-3 text-[var(--color-text-muted)] hover:bg-[var(--color-bg-elevated)] hover:text-[var(--color-text)]">Referenzen</a>
+        <a href="/faq/" class="rounded-lg px-3 py-3 text-[var(--color-text-muted)] hover:bg-[var(--color-bg-elevated)] hover:text-[var(--color-text)]">FAQ</a>
+        <a href="/kontakt/" class="btn-primary mt-2 justify-center">Kostenloses Erstgespräch</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="px-6 py-16 sm:py-24">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="section-label">Referenzen</p>
+      <h1 class="font-display text-3xl font-bold tracking-tight sm:text-4xl">Projekte &amp; Ergebnisse</h1>
+      <p class="mt-4 text-[var(--color-text-muted)]">
+        <!-- TODO: Sobald echte Projekte vorliegen, Platzhalter unten durch echte Screenshots, Namen und Beschreibungen ersetzen -->
+        Eine Auswahl an Projekten aus Social Media, Webdesign und Strategie.
+      </p>
+    </div>
+
+    <!-- Filter -->
+    <div data-filter-bar class="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-3">
+      <button type="button" data-filter="alle" aria-pressed="true" class="is-active rounded-full border border-[var(--color-border)] px-5 py-2 text-sm font-medium transition-colors">Alle</button>
+      <button type="button" data-filter="social-media" aria-pressed="false" class="rounded-full border border-[var(--color-border)] px-5 py-2 text-sm font-medium transition-colors">Social Media</button>
+      <button type="button" data-filter="webseiten" aria-pressed="false" class="rounded-full border border-[var(--color-border)] px-5 py-2 text-sm font-medium transition-colors">Webseiten</button>
+      <button type="button" data-filter="strategie" aria-pressed="false" class="rounded-full border border-[var(--color-border)] px-5 py-2 text-sm font-medium transition-colors">Strategie</button>
+    </div>
+
+    <!-- Projekt-Grid -->
+    <div class="mx-auto mt-12 grid max-w-6xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <article data-project-card data-category="social-media" class="card reveal overflow-hidden !p-0">
+        <img src="/assets/img/project-placeholder.svg" alt="Screenshot Platzhalter: Projekt Alpha" width="640" height="400" loading="lazy" class="w-full" />
+        <div class="p-6">
+          <!-- TODO: echten Projektnamen/Beschreibung einsetzen -->
+          <h2 class="font-display text-lg font-semibold">Projekt Alpha</h2>
+          <p class="mt-2 text-sm text-[var(--color-text-muted)]">Aufbau &amp; Betreuung des Instagram- und TikTok-Auftritts inkl. Content-Plan.</p>
+          <span class="mt-4 inline-block rounded-full bg-[var(--color-accent-soft)] px-3 py-1 text-xs font-medium text-[var(--color-accent)]">Social Media</span>
+        </div>
+      </article>
+
+      <article data-project-card data-category="webseiten" class="card reveal overflow-hidden !p-0">
+        <img src="/assets/img/project-placeholder.svg" alt="Screenshot Platzhalter: Projekt Beta" width="640" height="400" loading="lazy" class="w-full" />
+        <div class="p-6">
+          <h2 class="font-display text-lg font-semibold">Projekt Beta</h2>
+          <p class="mt-2 text-sm text-[var(--color-text-muted)]">Neugestaltung der Website inkl. responsivem Design und SEO-Grundlagen.</p>
+          <span class="mt-4 inline-block rounded-full bg-[var(--color-accent-soft)] px-3 py-1 text-xs font-medium text-[var(--color-accent)]">Webseiten</span>
+        </div>
+      </article>
+
+      <article data-project-card data-category="strategie" class="card reveal overflow-hidden !p-0">
+        <img src="/assets/img/project-placeholder.svg" alt="Screenshot Platzhalter: Projekt Gamma" width="640" height="400" loading="lazy" class="w-full" />
+        <div class="p-6">
+          <h2 class="font-display text-lg font-semibold">Projekt Gamma</h2>
+          <p class="mt-2 text-sm text-[var(--color-text-muted)]">Positionierung und Content-Strategie für den Markteintritt in einer neuen Zielgruppe.</p>
+          <span class="mt-4 inline-block rounded-full bg-[var(--color-accent-soft)] px-3 py-1 text-xs font-medium text-[var(--color-accent)]">Strategie</span>
+        </div>
+      </article>
+
+      <article data-project-card data-category="social-media webseiten" class="card reveal overflow-hidden !p-0">
+        <img src="/assets/img/project-placeholder.svg" alt="Screenshot Platzhalter: Projekt Delta" width="640" height="400" loading="lazy" class="w-full" />
+        <div class="p-6">
+          <h2 class="font-display text-lg font-semibold">Projekt Delta</h2>
+          <p class="mt-2 text-sm text-[var(--color-text-muted)]">Website-Relaunch mit direkter Anbindung an die Social-Media-Kanäle.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="inline-block rounded-full bg-[var(--color-accent-soft)] px-3 py-1 text-xs font-medium text-[var(--color-accent)]">Social Media</span>
+            <span class="inline-block rounded-full bg-[var(--color-accent-soft)] px-3 py-1 text-xs font-medium text-[var(--color-accent)]">Webseiten</span>
+          </div>
+        </div>
+      </article>
+
+      <article data-project-card data-category="webseiten strategie" class="card reveal overflow-hidden !p-0">
+        <img src="/assets/img/project-placeholder.svg" alt="Screenshot Platzhalter: Projekt Epsilon" width="640" height="400" loading="lazy" class="w-full" />
+        <div class="p-6">
+          <h2 class="font-display text-lg font-semibold">Projekt Epsilon</h2>
+          <p class="mt-2 text-sm text-[var(--color-text-muted)]">Strategisch geplante Website als zentrales Element der Kundengewinnung.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="inline-block rounded-full bg-[var(--color-accent-soft)] px-3 py-1 text-xs font-medium text-[var(--color-accent)]">Webseiten</span>
+            <span class="inline-block rounded-full bg-[var(--color-accent-soft)] px-3 py-1 text-xs font-medium text-[var(--color-accent)]">Strategie</span>
+          </div>
+        </div>
+      </article>
+
+      <article data-project-card data-category="social-media strategie" class="card reveal overflow-hidden !p-0">
+        <img src="/assets/img/project-placeholder.svg" alt="Screenshot Platzhalter: Projekt Zeta" width="640" height="400" loading="lazy" class="w-full" />
+        <div class="p-6">
+          <h2 class="font-display text-lg font-semibold">Projekt Zeta</h2>
+          <p class="mt-2 text-sm text-[var(--color-text-muted)]">Content-Strategie und laufende Betreuung zur Steigerung der Reichweite.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="inline-block rounded-full bg-[var(--color-accent-soft)] px-3 py-1 text-xs font-medium text-[var(--color-accent)]">Social Media</span>
+            <span class="inline-block rounded-full bg-[var(--color-accent-soft)] px-3 py-1 text-xs font-medium text-[var(--color-accent)]">Strategie</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="reveal mx-auto mt-16 max-w-2xl text-center">
+      <h2 class="font-display text-2xl font-bold tracking-tight">Dein Projekt könnte das nächste sein</h2>
+      <div class="mt-6">
+        <a href="/kontakt/" class="btn-primary">Kostenloses Erstgespräch vereinbaren</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-[var(--color-border)] px-6 py-16">
+    <div class="mx-auto max-w-6xl">
+      <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <a href="/" class="font-display text-lg font-bold">Mo <span class="text-[var(--color-accent)]">Digital</span></a>
+          <p class="mt-3 max-w-xs text-sm text-[var(--color-text-muted)]">
+            Social Media, Webdesign und Strategie aus einer Hand – persönlich betreut.
+          </p>
+          <div class="mt-5 flex gap-4">
+            <a href="https://instagram.com/mo.digital" target="_blank" rel="noopener noreferrer" aria-label="Mo Digital auf Instagram (@mo.digital)" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)]">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg>
+            </a>
+            <a href="https://www.tiktok.com/@mo.digital" target="_blank" rel="noopener noreferrer" aria-label="Mo Digital auf TikTok (@mo.digital)" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)]">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M16.5 3c.4 2.2 1.8 3.7 4 4v3c-1.5 0-2.9-.4-4-1.2v6.4a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v3.1a2.6 2.6 0 1 0 1.8 2.5V3h3Z" /></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/mo-digital" target="_blank" rel="noopener noreferrer" aria-label="Mo Digital auf LinkedIn" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)]">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM3.2 8.75h3.5V21H3.2V8.75Zm6.2 0h3.36v1.68h.05c.47-.88 1.6-1.8 3.3-1.8 3.53 0 4.19 2.33 4.19 5.36V21h-3.5v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21h-3.5V8.75Z" /></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <p class="font-display text-sm font-semibold uppercase tracking-wide text-[var(--color-text-muted)]">Navigation</p>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="/" class="hover:text-[var(--color-accent)]">Startseite</a></li>
+            <li><a href="/referenzen/" class="hover:text-[var(--color-accent)]">Referenzen</a></li>
+            <li><a href="/faq/" class="hover:text-[var(--color-accent)]">FAQ</a></li>
+            <li><a href="/kontakt/" class="hover:text-[var(--color-accent)]">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="font-display text-sm font-semibold uppercase tracking-wide text-[var(--color-text-muted)]">Rechtliches</p>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="/impressum/" class="hover:text-[var(--color-accent)]">Impressum</a></li>
+            <li><a href="/datenschutz/" class="hover:text-[var(--color-accent)]">Datenschutz</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="font-display text-sm font-semibold uppercase tracking-wide text-[var(--color-text-muted)]">Kontakt</p>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="mailto:hallo@mo-digital.example" class="hover:text-[var(--color-accent)]">hallo@mo-digital.example</a></li>
+            <li>[STADT/REGION]</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 border-t border-[var(--color-border)] pt-6 text-center text-sm text-[var(--color-text-muted)]">
+        © <span data-current-year>2026</span> Mo Digital. Alle Rechte vorbehalten.
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/referenzen-filter.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<!-- TODO: durch echtes Open-Graph-Bild ersetzen (1200x630px, .jpg oder .png, empfohlen für max. Kompatibilität mit Social-Media-Vorschauen) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Mo Digital – Dein Auftritt. Meine Verantwortung.">
+  <rect width="1200" height="630" fill="#0a0b0d"/>
+  <path d="M90 400V230h32.5l57.5 90 57.5-90H270v170h-32.5V282.5L172.5 373h-10L97 282.5V400H90Z" fill="#2f6fff" transform="scale(2.2) translate(0,-40)"/>
+  <text x="600" y="330" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="56" fill="#f4f5f7">Mo Digital</text>
+  <text x="600" y="385" text-anchor="middle" font-family="sans-serif" font-size="28" fill="#9aa1ac">Dein Auftritt. Meine Verantwortung.</text>
+</svg>

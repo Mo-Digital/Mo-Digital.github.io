@@ -1,0 +1,21 @@
+{
+  "name": "mo-digital",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mo Digital – One-Person-Business Website (Social Media, Webdesign, Strategie)",
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css --minify",
+    "watch:css": "tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css --watch",
+    "start": "npx serve ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/space-grotesk": "^5.2.10",
+    "@tailwindcss/cli": "^4.3.2",
+    "@tailwindcss/typography": "^0.5.20",
+    "tailwindcss": "^4.3.2"
+  }
+}

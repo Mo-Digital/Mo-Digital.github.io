@@ -1,0 +1,8 @@
+# TODO: echte Domain in der Sitemap-Zeile unten eintragen
+# Hinweis: Impressum/Datenschutz werden bewusst NICHT hier gesperrt, sondern per
+# <meta name="robots" content="noindex, follow"> auf den Seiten selbst von der Indexierung
+# ausgeschlossen - eine robots.txt-Sperre würde verhindern, dass Suchmaschinen dieses Tag lesen.
+User-agent: *
+Allow: /
+
+Sitemap: https://www.mo-digital.example/sitemap.xml
