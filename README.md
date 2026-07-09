@@ -88,10 +88,11 @@ markiert. Zentrale Übersicht:
   identisch bleiben.
 - **Social-Media-Handles:** Instagram und TikTok sind auf `@modgital` gesetzt (identisch
   in allen 5 Footern und im JSON-LD). LinkedIn wurde komplett entfernt.
-- **[STADT/REGION]:** in Meta-Descriptions, Footer und Texten – deine echte Stadt/Region.
-- **[DEIN VOLLER NAME]:** Impressum, Datenschutz, Schema.org-JSON-LD in `index.html`
-  (rechtlicher Name für Impressum – der öffentliche Name "Mo" ist bereits im Hero, in der
-  Über-mich-Sektion und den Bild-alt-Texten eingetragen).
+- **[STADT/REGION]:** in Meta-Descriptions und Texten – deine echte Stadt/Region (im Footer
+  gibt es keine Standortangabe mehr, siehe unten).
+- **Rechtlicher Name (Muhammed Emin Hakan):** bereits in Impressum, Datenschutz und
+  Schema.org-JSON-LD eingetragen – der öffentliche Name "Mo" bleibt im Hero, in der
+  Über-mich-Sektion und den Bild-alt-Texten.
 
 ### 2. Logo (alle 5 Seiten, Header)
 Neben dem Schriftzug "Mo Digital" im Header steht aktuell ein runder Platzhalter mit
@@ -99,13 +100,15 @@ einem "M" (`<!-- TODO: echtes Logo hier einsetzen -->`). Ersetze das `<span>` du
 `<img>`-Tag mit deinem echten Logo, sobald vorhanden.
 
 ### 3. Impressum (`impressum/index.html`)
-Name/Firma, Anschrift, Telefon, USt-IdNr. (falls vorhanden), verantwortliche Person.
-**Wichtig:** Lass den Text vor Live-Schaltung von einem Anwalt oder Impressum-Generator
-(z. B. IHK, e-recht24.de) prüfen – die Vorlage ersetzt keine Rechtsberatung.
+Ausgefüllt (Name, Anschrift, Telefon, E-Mail). **Wichtig:** Der Text deckt die rechtlichen
+Standardanforderungen ab, ersetzt aber keine individuelle Rechtsberatung – vor Live-Schaltung
+(bzw. sobald sich am Angebot etwas ändert, z. B. Umsatzsteuerpflicht) von einem Anwalt oder
+einer Plattform wie e-recht24.de gegenprüfen lassen.
 
 ### 4. Datenschutzerklärung (`datenschutz/index.html`)
-Verantwortlicher, Hosting-Anbieter, Stand-Datum. Ebenfalls vor Live-Schaltung rechtlich
-prüfen lassen.
+Ausgefüllt (Verantwortlicher, Hosting bei GitHub Pages, Calendly als Auftragsverarbeiter).
+Gleicher Hinweis wie beim Impressum: vor Live-Schaltung bzw. bei neuen Tools/Tracking
+rechtlich gegenprüfen lassen.
 
 ### 5. Kontaktseite (`kontakt/index.html`)
 Kein klassisches Formular: Die Seite ist ein reiner Auswahl-Flow (2 Fragen per Klick,
