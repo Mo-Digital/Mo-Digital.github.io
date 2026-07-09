@@ -86,9 +86,8 @@ markiert. Zentrale Übersicht:
 - **E-Mail:** aktuell `info@mo-digital.net` – suche/ersetze in allen 5 HTML-Dateien
   (Footer + teils im Fließtext). Achte darauf, dass sichtbarer Text und `mailto:`-Link
   identisch bleiben.
-- **Social-Media-Handles:** Instagram/TikTok/LinkedIn aktuell `@mo.digital` bzw.
-  `mo-digital` – in allen 5 Footern identisch. Nach dem Ersetzen erneut in allen Dateien
-  prüfen, dass Linktext und `href` exakt übereinstimmen.
+- **Social-Media-Handles:** Instagram und TikTok sind auf `@modgital` gesetzt (identisch
+  in allen 5 Footern und im JSON-LD). LinkedIn wurde komplett entfernt.
 - **[STADT/REGION]:** in Meta-Descriptions, Footer und Texten – deine echte Stadt/Region.
 - **[DEIN VOLLER NAME]:** Impressum, Datenschutz, Schema.org-JSON-LD in `index.html`
   (rechtlicher Name für Impressum – der öffentliche Name "Mo" ist bereits im Hero, in der
