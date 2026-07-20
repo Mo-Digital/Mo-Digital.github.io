@@ -130,11 +130,6 @@
     }
   }
 
-  .mobile-menu.is-open {
-    grid-template-rows: 1fr;
-    max-height: 100vh;
-  }
-
   .accordion-panel {
     transition: height 0.3s ease;
   }
@@ -145,5 +140,17 @@
   [data-flow-option].is-selected {
     border-color: var(--color-accent);
     background-color: var(--color-accent-soft);
+  }
+}
+
+/* Must live in the utilities layer (not components): Tailwind's own utility
+   classes on the same element (max-h-0, grid-rows-[0fr]) are emitted into
+   the utilities layer, which always wins the cascade over an earlier layer
+   regardless of selector specificity. A components-layer .is-open rule here
+   would never actually override them. */
+@layer utilities {
+  .mobile-menu.is-open {
+    grid-template-rows: 1fr;
+    max-height: 100vh;
   }
 }
